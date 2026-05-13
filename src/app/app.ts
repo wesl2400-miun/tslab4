@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Courses } from './logic/service/courses';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('tslab4');
+
+  constructor(courses: Courses) {
+    courses.fromNetwork();
+
+    courses.fromCache();
+  }
 }

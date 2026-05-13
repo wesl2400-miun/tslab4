@@ -11,9 +11,8 @@ import { Courses } from './logic/service/courses';
 export class App {
   protected readonly title = signal('tslab4');
 
+  // Temporär kod, testar logiken
   constructor(courses: Courses) {
     courses.fromNetwork();
-
-    courses.fromCache();
   }
 }

@@ -1,18 +1,38 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Courses } from './logic/service/courses';
+import { FILTER } from './logic/ref/filter';
+import { Table } from './ui/component/table/table';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Table],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('tslab4');
+  private courses: Courses;
+  private subs: Subscription;
 
-  // Temporär kod, testar logiken
   constructor(courses: Courses) {
-    courses.fromNetwork();
+    this.courses = courses;
+    this.subs = new Subscription();
+  }
+
+  // Börja observera uppdateringar av
+  // data-flödet från HttpClient
+  public ngOnInit() {
+    this.subs.add(
+      this.courses
+        .fromNetwork());
+  }
+
+  // Sluta observera data-flödet från
+  // HttpClient så att det inte fortsätter
+  // köra i bakgrunden
+  public ngOnDestroy(){
+    this.subs.unsubscribe();
   }
 }

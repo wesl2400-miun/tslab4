@@ -52,7 +52,7 @@ export class Courses {
       data as CourseI[]);
   }
 
-  public sorted = (
+  public sorted$ = (
     ): Observable<CourseI[]> => {
     return combineLatest([
       this.filter$, this.cache$])

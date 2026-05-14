@@ -33,7 +33,7 @@ export class Table {
   // Temporär kod för testning
   private sorted = (
     ): Subscription => {
-    return this.courses.sorted()
+    return this.courses.sorted$()
       .subscribe(data => {
         console.log(
           'From table', data);

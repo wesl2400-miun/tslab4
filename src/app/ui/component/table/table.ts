@@ -1,40 +1,24 @@
 import { Component } from '@angular/core';
 import { Courses } from '../../../logic/service/courses';
-import { FILTER } from '../../../logic/ref/filter';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { LabelI } from '../../../logic/interface/LabelI';
+import { LABEL } from '../../../logic/ref/label';
+import { CourseI } from '../../../logic/interface/CourseI';
 
 @Component({
   selector: 'app-table',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './table.html',
   styleUrl: './table.css',
 })
 export class Table {
-  private courses: Courses;
-  private subs: Subscription;
+  public courses$: Observable<CourseI[]>
+  public label: LabelI;
 
   constructor(courses: Courses) {
-    this.courses = courses;
-    this.subs = new Subscription();
-  }
-
-  // Temporär kod för testning
-  public ngOnInit() {
-    this.subs.add(
-      this.sorted());
-  }
-
-  public ngOnDestroy() {
-    this.subs.unsubscribe();
-  }
-
-  // Temporär kod för testning
-  private sorted = (
-    ): Subscription => {
-    return this.courses.sorted$()
-      .subscribe(data => {
-        console.log(
-          'From table', data);
-      });
+    this.courses$ = 
+      courses.sorted$();
+    this.label = LABEL;
   }
 }

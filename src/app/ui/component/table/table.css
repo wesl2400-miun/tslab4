@@ -1,0 +1,33 @@
+.courses {
+  width: 100%;
+  border-spacing: 0;
+  font-size: 0.9rem;
+}
+
+.courses th,
+.courses td {
+  padding: 0.3rem 0.7rem;
+}
+
+.courses th {
+  text-align: start;
+}
+
+.prog-short {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .syllabus {
+    display: none;
+  }
+  .prog-short {
+    display: block;
+  }
+  .prog-long {
+    display: none;
+  }
+  h2 {
+    font-size: 1.1rem;
+  }
+}

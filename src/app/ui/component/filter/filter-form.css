@@ -1,0 +1,28 @@
+
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 700px) {
+  .filter {
+    font-size: 0.9rem;
+    gap: 0.3rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .filter {
+    font-size: 0.9rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0;
+  }
+}

@@ -14,3 +14,66 @@
   color: var(--on-surface);
 }
 
+body,
+header,
+section, 
+main,
+app-root,
+app-table,
+app-filter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+header,
+main,
+section,
+app-root,
+app-table,
+app-filter-form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  background-color: var(--on-primary);
+}
+
+header {
+  box-shadow: 2px 3px 3px var(--on-background);
+  margin-bottom: 1rem;
+}
+
+main {
+  max-width: 600px;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+section {
+  padding: 1rem;
+  background-color: var(--secondary);
+  border-radius: 0 10px 0 10px;
+}
+
+h1, h2 {
+  width: 100%;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--on-background);
+}
+
+h2 {
+  color: var(--primary-variant);
+}

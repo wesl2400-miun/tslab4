@@ -1,1 +1,29 @@
-<p>table works!</p>
+
+<section>
+  <h2>Tillgängliga kurser</h2>
+  <table class="courses">
+    <thead>
+      <tr>
+        <th>{{label.COURSE_CODE}}</th>
+        <th>{{label.COURSE_NAME}}</th>
+        <th class="prog-long">{{label.COURSE_PROG}}</th>
+        <th class="prog-short">Prog.</th>
+        <th class="syllabus">{{label.COURSE_SYLL}}</th>
+      </tr>
+    </thead>
+    <!-- | async börjar lyssna efter kursuppdateringar 
+    ** och stoppar att lyssna efter dessa automatiskt 
+    ** så att detta inte behövs tas hand om i Tabellkomponent-klassen 
+    ** @for-satsen skapar tabellraderna dynamiskt -->
+    <tbody>
+      @for (course of courses$ | async; track course) {
+        <tr>
+          <td>{{course.code}}</td>
+          <td>{{course.coursename}}</td>
+          <td>{{course.progression}}</td>
+          <td class="syllabus"><a [href]="course.syllabus">Se kursplan</a></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>

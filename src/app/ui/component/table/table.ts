@@ -22,8 +22,6 @@ export class Table {
   public ngOnInit() {
     this.subs.add(
       this.sorted());
-    this.courses.switchFilter(
-      FILTER.ORG);
   }
 
   public ngOnDestroy() {

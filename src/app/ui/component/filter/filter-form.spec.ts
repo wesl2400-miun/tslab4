@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Switch } from './switch';
+import { FilterForm } from './filter-form';
 
 describe('Switch', () => {
-  let component: Switch;
-  let fixture: ComponentFixture<Switch>;
+  let component: FilterForm;
+  let fixture: ComponentFixture<FilterForm>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Switch],
+      imports: [FilterForm],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Switch);
+    fixture = TestBed.createComponent(FilterForm);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

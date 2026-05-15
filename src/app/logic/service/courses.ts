@@ -31,7 +31,7 @@ export class Courses {
   }
 
   // Uppdatera sorteringsflaggan
-  public switchFilter = (
+  public switchFilt = (
     filter: string): void => {
     this.filtSbj.next(filter);
   }

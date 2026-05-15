@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Courses } from './logic/service/courses';
-import { Switch } from './ui/component/switch/switch';
+import { FilterForm } from './ui/component/filter/filter-form';
 import { Table } from './ui/component/table/table';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Switch, Table],
+  imports: [RouterOutlet, FilterForm, Table],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

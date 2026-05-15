@@ -1,0 +1,21 @@
+<section>
+  <h2>Sortera efter</h2>
+  <form class="filter" [formGroup]="form">
+    <div class="radio-btn">
+      <input id="code" type="radio"  formControlName="filter" [value]="filtMode.CODE">
+      <label for="code">{{label.COURSE_CODE}}</label>
+    </div>
+    <div class="radio-btn">
+      <input id="name" type="radio" formControlName="filter" [value]="filtMode.NAME">
+      <label for="name">{{label.COURSE_NAME}}</label>
+    </div>
+    <div class="radio-btn">
+      <input id="prog" type="radio" formControlName="filter" [value]="filtMode.PROG">
+      <label for="prog">{{label.COURSE_PROG}}</label>
+    </div>
+    <div class="radio-btn">
+      <input id="org" type="radio" formControlName="filter" [value]="filtMode.ORG">
+      <label for="org">{{label.COURSE_ORG}}</label>
+    </div>
+  </form>
+</section>

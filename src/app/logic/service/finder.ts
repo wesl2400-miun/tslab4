@@ -42,7 +42,6 @@ export class Finder {
     course: CourseI): boolean => {
     const { code, 
       coursename } = course;
-    console.log(search, code)
     return foundPhrase(
       code, search) 
       || foundPhrase(

@@ -1,5 +1,8 @@
+
 <section class="form">
   <h2>Sortera efter</h2>
+  <!-- ReactiveFormsModule skapar ett formulär, som styrs från filter-form.ts-filen -->
+  <!-- Rubrikerna och värdena anges via 'databindning' -->
   <form class="filter" [formGroup]="form">
     <div class="radio-btn">
       <input id="code" type="radio"  formControlName="filter" [value]="filtMode.CODE">

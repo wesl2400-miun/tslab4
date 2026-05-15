@@ -14,6 +14,7 @@ export class FinderForm {
   private subs: Subscription;
   private finder: Finder;
 
+  // Initiera formuläret och data
   constructor(
     fBuilder: FormBuilder,
     finder: Finder) {
@@ -24,15 +25,19 @@ export class FinderForm {
     this.finder = finder;
   }
 
+  // Börja lyssna efter uppdateringar av sökfältet
   public ngOnInit() {
     this.subs.add(
       this.search());
   }
 
+  // Sluta lyssna efter uppdateringar av sökfältet
+  // för att undvika minnesläckor
   public ngOnDestroy() {
     this.subs.unsubscribe();
   }
 
+  // Lyssna efter uppdateringar av sökfältet
   private search = (
     ): Subscription => {
     return this.form.get('search')!

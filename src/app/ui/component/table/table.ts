@@ -18,6 +18,9 @@ export class Table {
   public courses$: Observable<CourseI[]>
   public label: LabelI;
 
+  // Hämta aktuell kurslista baserat på det aktuella
+  // sökordet och sorteringsflagga
+  // Detta sker via RxJS
   constructor(
     sorter: Sorter,
     finder: Finder,
@@ -31,6 +34,8 @@ export class Table {
     this.label = LABEL;
   }
 
+  // Returnera tabellen baserat på sorterings- och sökord-värdet
+  // samt de cachade kurserna
   private table = (
     sorter: Sorter,
     finder: Finder): any => {

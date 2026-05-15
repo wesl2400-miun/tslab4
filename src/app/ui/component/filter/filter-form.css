@@ -1,4 +1,5 @@
 
+/* Stilmallen för sorteringsformuläret */
 .filter {
   width: 100%;
   display: flex;
@@ -7,6 +8,7 @@
   gap: 1rem;
 }
 
+/* Stilmallen gäller mobilen */
 @media screen and (max-width: 700px) {
   .filter {
     font-size: 0.9rem;

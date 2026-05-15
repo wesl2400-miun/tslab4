@@ -1,3 +1,4 @@
+/** Stilmallen för tabelllen **/
 .courses {
   width: 100%;
   border-spacing: 0;
@@ -17,6 +18,7 @@
   display: none;
 }
 
+/** Den mobila versionen av stilmallen för tabelllen **/
 @media screen and (max-width: 700px) {
   .syllabus {
     display: none;

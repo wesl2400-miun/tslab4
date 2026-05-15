@@ -14,6 +14,7 @@
   color: var(--on-surface);
 }
 
+/* Gör följande behållare flexibla */
 body,
 header,
 section, 
@@ -30,6 +31,7 @@ app-filter-form {
   padding: 0;
 }
 
+/* Låt följande behållare ta 100% i breden */
 header,
 main,
 section,
@@ -41,6 +43,7 @@ app-filter-form {
   box-sizing: border-box;
 }
 
+/* Stilmallen för interaktiva sektioner, exempelvis sökfält- och radioknapp-sektionerna */
 .form {
   background-color: var(--secondary-variant);
 }
@@ -50,11 +53,13 @@ body {
   background-color: var(--on-primary);
 }
 
+/* Stilmallen för logotypen */
 header {
   box-shadow: 2px 3px 3px var(--on-background);
   margin-bottom: 1rem;
 }
 
+/* Stilmallen för huvudinnehållet */
 main {
   max-width: 600px;
   gap: 1rem;
@@ -69,6 +74,7 @@ section {
   border: 2px solid var(--primary-variant);
 }
 
+/* Stilmallen för rubrikerna */
 h1, h2 {
   width: 100%;
   margin-top: 0;

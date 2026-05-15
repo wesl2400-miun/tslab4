@@ -1,4 +1,5 @@
 
+// Definierar strukturen för rubrikerna som visas ovanför radioknappgruppen
 export interface LabelI {
   COURSE_CODE: string,
   COURSE_NAME: string,

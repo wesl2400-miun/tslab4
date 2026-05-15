@@ -10,6 +10,7 @@ export class Sorter {
   private filtSbj: BehaviorSubject<string>
   public filter$: Observable<string>
 
+  // Definiera Rx-flödet för sorteringsflaggan
   constructor() {
     this.filtSbj = 
       new BehaviorSubject(
@@ -18,11 +19,13 @@ export class Sorter {
       .asObservable();
   }
 
+  // Uppdatera sorteringsflaggan
   public sort = (
     filter: string) => {
     this.filtSbj.next(filter);
   }
 
+  // Returnera en sorterad kurslista
   public sorted = (
     filter: string,
     courses: CourseI[]
@@ -34,6 +37,8 @@ export class Sorter {
       copy, filter); 
   }
 
+  // Sortera kurserna efter den agivna flaggan 
+  // (egentligen efter objektets fält som anges här dynamiskt)
   private sortedBy = (
     courses: CourseI[],
     field: string): CourseI[] => {

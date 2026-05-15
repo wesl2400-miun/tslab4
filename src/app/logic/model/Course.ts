@@ -1,5 +1,6 @@
 import { CourseI } from "../interface/CourseI";
 
+// Modellklassen för kursen
 export class Course implements CourseI {
   public code: string;
   public coursename: string;

@@ -12,6 +12,7 @@ export class Courses {
   private cacheSbj: BehaviorSubject<CourseI[]>
   public cache$: Observable<CourseI[]>
   
+  // Definiera HttpClient och ett Rx-kursflöde
   constructor(http: HttpClient) {
     this.http = http;
     this.cacheSbj = 
@@ -20,6 +21,8 @@ export class Courses {
       .asObservable();
   }
 
+  // Hämta kurserna från den angivna URL:en och
+  // lyssna efter eventuella uppdateringar
   public fromNetwork = (
     ): Subscription => {
     return this.http
@@ -30,6 +33,7 @@ export class Courses {
       });
   }
 
+  // Cacha kurserna i ett Rx-flöde
   private cache = (
     data: any): void => {
     this.cacheSbj.next(

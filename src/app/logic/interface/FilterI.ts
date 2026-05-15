@@ -1,4 +1,5 @@
 
+// Definierar strukturen för sorteringsdata
 export interface FilterI {
   CODE: string,
   NAME: string,

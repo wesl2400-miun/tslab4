@@ -21,6 +21,7 @@ export class FilterForm {
   public label: LabelI;
   private sorter: Sorter;
 
+  // Initiera formuläret och data
   constructor(
     fBuilder: FormBuilder,
     sorter: Sorter) {
@@ -34,15 +35,20 @@ export class FilterForm {
     this.sorter = sorter;
   }
 
+  // Börja lyssna efter uppdateringar av formuläret
   public ngOnInit() {
     this.subs.add(
       this.filter());
   }
 
+  // Sluta lyssna efter uppdateringar, så
+  // att Rx-flödet inte fortsätter köra i bakgrunden
+  // och orsakar inte minnesläckor
   public ngOnDestroy() {
     this.subs.unsubscribe();
   }
 
+  // Lyssna efter uppdateringar av radioknappar för sortering
   private filter = (
     ): Subscription => {
     return this.form.get('filter')!

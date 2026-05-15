@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Courses } from '../../../logic/service/courses';
 import { LabelI } from '../../../logic/interface/LabelI';
 import { LABEL } from '../../../logic/ref/label';
+import { Sorter } from '../../../logic/service/sorter';
 
 @Component({
   selector: 'app-filter-form',
@@ -19,11 +20,12 @@ export class FilterForm {
   private subs: Subscription;
   public filtMode: FilterI;
   public label: LabelI;
-  private courses: Courses;
+  private sorter: Sorter;
 
   constructor(
     fBuilder: FormBuilder,
-    courses: Courses) {
+    courses: Courses,
+    sorter: Sorter) {
     this.form = fBuilder.group({
       filter: [FILTER.ORG]
     });
@@ -31,7 +33,7 @@ export class FilterForm {
     this.label = LABEL;
     this.subs = 
       new Subscription();
-    this.courses = courses;
+    this.sorter = sorter;
   }
 
   public ngOnInit() {
@@ -48,8 +50,8 @@ export class FilterForm {
     return this.form.get('filter')!
       .valueChanges.subscribe(
         value => {
-        this.courses
-          .switchFilt(value);
+        this.sorter
+          .sort(value);
       });
   }
 }

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LabelI } from '../../../logic/interface/LabelI';
 import { LABEL } from '../../../logic/ref/label';
 import { CourseI } from '../../../logic/interface/CourseI';
+import { Sorter } from '../../../logic/service/sorter';
 
 @Component({
   selector: 'app-table',
@@ -16,9 +17,12 @@ export class Table {
   public courses$: Observable<CourseI[]>
   public label: LabelI;
 
-  constructor(courses: Courses) {
+  constructor(
+    sorter: Sorter,
+    courses: Courses) {
     this.courses$ = 
-      courses.sorted$();
+      sorter.sorted$(
+        courses.cache$);
     this.label = LABEL;
   }
 }

@@ -1,0 +1,24 @@
+
+.finder,
+.finder label, 
+.finder input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.finder {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.finder input {
+  height: 30px;
+  font-size: 1.2rem;
+  color: var(--primary-variant);
+  border: 2px solid var(--primary-variant);
+  border-radius: 5px;
+  padding-left: 0.3rem;
+}

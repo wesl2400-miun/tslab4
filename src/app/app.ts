@@ -4,10 +4,11 @@ import { Courses } from './logic/service/courses';
 import { FilterForm } from './ui/component/filter/filter-form';
 import { Table } from './ui/component/table/table';
 import { Subscription } from 'rxjs';
+import { FinderForm } from './ui/component/finder-form/finder-form';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FilterForm, Table],
+  imports: [RouterOutlet, Table, FilterForm, FinderForm],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

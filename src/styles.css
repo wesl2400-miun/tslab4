@@ -20,6 +20,7 @@ section,
 main,
 app-root,
 app-table,
+app-finder-form, 
 app-filter-form {
   display: flex;
   justify-content: center;
@@ -34,9 +35,14 @@ main,
 section,
 app-root,
 app-table,
+app-finder-form,
 app-filter-form {
   width: 100%;
   box-sizing: border-box;
+}
+
+.form {
+  background-color: var(--secondary-variant);
 }
 
 body {
@@ -60,6 +66,7 @@ section {
   padding: 1rem;
   background-color: var(--secondary);
   border-radius: 0 10px 0 10px;
+  border: 2px solid var(--primary-variant);
 }
 
 h1, h2 {

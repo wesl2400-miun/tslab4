@@ -4,7 +4,6 @@ import { FILTER } from '../../../logic/ref/filter';
 import { Subscription } from 'rxjs';
 import { FilterI } from '../../../logic/interface/FilterI';
 import { CommonModule } from '@angular/common';
-import { Courses } from '../../../logic/service/courses';
 import { LabelI } from '../../../logic/interface/LabelI';
 import { LABEL } from '../../../logic/ref/label';
 import { Sorter } from '../../../logic/service/sorter';
@@ -24,7 +23,6 @@ export class FilterForm {
 
   constructor(
     fBuilder: FormBuilder,
-    courses: Courses,
     sorter: Sorter) {
     this.form = fBuilder.group({
       filter: [FILTER.ORG]
@@ -48,8 +46,8 @@ export class FilterForm {
   private filter = (
     ): Subscription => {
     return this.form.get('filter')!
-      .valueChanges.subscribe(
-        value => {
+      .valueChanges
+      .subscribe(value => {
         this.sorter
           .sort(value);
       });

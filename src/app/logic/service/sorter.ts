@@ -8,7 +8,7 @@ import { CourseI } from '../interface/CourseI';
 })
 export class Sorter {
   private filtSbj: BehaviorSubject<string>
-  private filter$: Observable<string>
+  public filter$: Observable<string>
 
   constructor() {
     this.filtSbj = 
@@ -23,23 +23,15 @@ export class Sorter {
     this.filtSbj.next(filter);
   }
 
-  public sorted$ = (
-    cache$: Observable<CourseI[]>
-  ): Observable<CourseI[]> => {
-    return combineLatest([
-      this.filter$, cache$]).pipe(
-        this.toSorted());
-  }
-
-  public toSorted = (): any => {
-    return map(([filter, courses]) => {
-      if(filter === FILTER.ORG)
-        return courses;
-      const copy = [...courses];
-      return this.sortedBy(
-        copy, filter); 
-      }
-    )
+  public sorted = (
+    filter: string,
+    courses: CourseI[]
+    ): CourseI[] => {
+    if(filter === FILTER.ORG)
+      return courses;
+    const copy = [...courses];
+    return this.sortedBy(
+      copy, filter); 
   }
 
   private sortedBy = (

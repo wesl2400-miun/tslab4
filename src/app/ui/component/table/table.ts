@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Courses } from '../../../logic/service/courses';
-import { Observable, Subscription } from 'rxjs';
+import { combineLatest, map, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { LabelI } from '../../../logic/interface/LabelI';
 import { LABEL } from '../../../logic/ref/label';
 import { CourseI } from '../../../logic/interface/CourseI';
 import { Sorter } from '../../../logic/service/sorter';
+import { Finder } from '../../../logic/service/finder';
 
 @Component({
   selector: 'app-table',
@@ -19,10 +20,29 @@ export class Table {
 
   constructor(
     sorter: Sorter,
+    finder: Finder,
     courses: Courses) {
-    this.courses$ = 
-      sorter.sorted$(
-        courses.cache$);
+    this.courses$ = combineLatest([
+      sorter.filter$,
+      finder.search$,
+      courses.cache$
+    ]).pipe(this.table(
+      sorter, finder));
     this.label = LABEL;
   }
+
+  private table = (
+    sorter: Sorter,
+    finder: Finder): any => {
+    return map(([filter, 
+      search, cache]) => {
+      const sorted = 
+        sorter.sorted(filter, 
+          cache);
+      return finder.found(
+        search, sorted);
+    });
+  }
 }
+
+
